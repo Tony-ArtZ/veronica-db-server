@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { task } = req.body;
-    const todo = new Todo({ task });
+    const { task, dueDate } = req.body;
+    const todo = new Todo({ task, dueDate });
     await todo.save();
     res.json({ message: "successful" });
   } catch (error) {
